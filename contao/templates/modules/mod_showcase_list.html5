@@ -1,0 +1,11 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+<?php if (empty($this->showcases)): ?>
+    <p class="empty">No Showcases</p>
+<?php else: ?>
+    <div class="showcases">
+        <?= implode('', $this->showcases) ?>
+    </div>
+<?php endif; ?>
+<?php $this->endblock(); ?>

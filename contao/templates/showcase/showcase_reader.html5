@@ -1,0 +1,131 @@
+<?php
+global $objPage;
+$heroTags = str_replace(array("[highlight]", "[/highlight]"),
+    array("<span class='highlight-text'>", "</span>"),
+    $this->heroLead);
+$linksSection = unserialize($this->linksSection);
+?>
+
+<div class="layout_full block<?= $this->class ?>">
+    <section
+        class="hero hero hero--w-image" <?= $this->customBackgroundColor ? 'style="background-color:#' . $this->customBackgroundColor . ';"' : '' ?>>
+        <?php if ($this->hasHeaderAsset): ?>
+            <figure class="hero__full-image">
+                <img src="<?= $this->headerAsset ?>" alt="<?= $this->title ?>">
+            </figure>
+
+            <div class="hero__wrapper">
+                <div class="hero__content" data-hc="app/characterBlender">
+                    <?php if ($this->lead): ?>
+                        <h1 class="hero__title animate-letters">
+                            <?= $this->lead ?>
+                        </h1>
+                    <?php endif; ?>
+                    <section class="preview">
+                        <div class="dots dots--white">
+                            <div class="dots__dot dots__dot--top"></div>
+                            <div class="dots__dot dots__dot--middle"></div>
+                            <div class="dots__dot dots__dot--bottom"></div>
+                        </div>
+                        <div class="preview__text preview__text--white">
+                            mehr erfahren
+                        </div>
+                    </section>
+                </div>
+            </div>
+        <?php endif; ?>
+    </section>
+
+    <section class="showcase">
+        <div class="showcase__wrapper">
+            <div class="showcase__content">
+                <div class="showcase__description insicht insicht--fade-up">
+                    <div>
+                        <?= $this->shortDescription ?>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase__content showcase__content--grey">
+                <div class="showcase__details<?= $this->customerImage ? ' showcase__details--logo' : '' ?> insicht insicht--fade-up">
+                    <?php if ($this->tagTitle) : ?>
+                        <div class="showcase__meta">
+                            <?= $this->tagTitle ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if ($this->tags) : ?>
+                        <ul class="showcase__tags">
+                            <?php foreach ($this->tags as $tag): ?>
+                                <li><?= $tag['title'] ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+
+                    <?php if ($linksSection) : ?>
+                        <?php if ($this->linksSectionTitle) : ?>
+                            <div class="showcase__meta">
+                                <?= $this->linksSectionTitle ?>
+                            </div>
+                        <?php endif; ?>
+                        <ul class="showcase__tags">
+                            <?php foreach ($linksSection as $link): ?>
+                                <li>
+                                    <a href="<?= $link['link'] ?>" target="_blank">
+                                        <?= $link['linkTitle'] ?>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+
+                    <?php if ($this->regularLink) : ?>
+                        <div class="showcase-link">
+                            <a href="<?= str_contains(
+                                $this->regularLink,
+                                'http'
+                            ) ?: 'https://' ?><?= $this->regularLink ?>" class="primary-link" target="_blank">
+                                <span class="primary-link__text"><?= $this->regularLinkTitle ?: 'Website' ?></span>
+                            </a>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <?php if ($this->vimeoid) : ?>
+        <section class="video-container">
+            <figure class="video video-w-poster video-iframe"
+                    data-hc="app/videoPlayer">
+                <script type="application/json" data-hcd>
+                    {
+                        "cinematicRatio": "<?= $this->cinematicRatio ?>",
+                        "videoIdentifier": "<?= $objPage->id ?>"
+                    }
+                </script>
+                <div class="video__wrapper">
+                    <?php if ($this->vimeoImage): ?>
+                        <a class="video__poster">
+                            <img src="<?= $this->vimeoImage ?>" alt="">
+                        </a>
+                    <?php endif; ?>
+
+                    <script type="text/template">
+                        <iframe src="https://player.vimeo.com/video/<?= $this->vimeoid ?>?autoplay=1"
+                                title="Vimeo video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </script>
+                </div>
+            </figure>
+        </section>
+    <?php endif; ?>
+
+    <?= $this->main ?>
+
+    <div class="sticky-link">
+        <a href="{{env::path}}<?= $objPage->parentAlias ?>" class="sticky-link__link">
+            Overview
+        </a>
+    </div>
+</div>

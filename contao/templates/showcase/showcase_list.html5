@@ -1,0 +1,27 @@
+<section class="showcase-single">
+    <div
+        class="<?= $this->class ?>showcase-single__wrapper<?= $this->changeBgColors ? ' screen--' . $this->changeBgColors : '' ?>">
+        <?php if ($this->hasListImage): ?>
+            <a href="{{env::path}}{{link_url::<?= $this->jumpTo ?>}}/<?= $this->alias ?>" class="showcase-single__image">
+                <img src="<?= $this->listImage ?>" alt="<?= $this->title ?>">
+            </a>
+        <?php endif; ?>
+
+        <div class="showcase-single__content insicht insicht--fade-up">
+            <a href="{{env::path}}{{link_url::<?= $this->jumpTo ?>}}/<?= $this->alias ?>">
+                <?php if ($this->title) : ?>
+                    <h2 class="showcase-single__title"><?= $this->title ?><?= $this->specification ? '<span class="showcase-single__specification"> · ' . $this->specification . '</span>' : '' ?></h2>
+                <?php endif; ?>
+                <?php if ($this->subtitle) : ?>
+                    <h3 class="showcase-single__subtitle"><?= $this->subtitle ?></h3>
+                <?php endif; ?>
+            </a>
+            <?php if ($this->detailPage) : ?>
+                <div class="showcase-single__link-wrapper">
+                    <?= $this->detailPage ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>
+

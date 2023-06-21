@@ -1,6 +1,6 @@
-# Contao Skeleton Bundle
+# Showcase Bundle
 
-This contao module is a template for building our own.
+This Contao module contains a content element to showcase projects or other such listings
 
 ## Requirements
 
@@ -9,16 +9,11 @@ This contao module is a template for building our own.
 
 ## Install
 
-!!! example installation !!!
-
 ```BASH
-$ composer require guave/contaoskeleton-bundle
+$ composer require guave/showcase-bundle
 ```
 
 ## Usage
 
-Add some small sample text of how it's meant to be activated and used, e.g. in `contao/config/config.php`
-
-```PHP
-$GLOBALS['TL_SKELETON'] = true;
-```
+- Create new showcases in the backend under "Showcases"
+- Use content elements in articles to create listings and detail pages of the showcases

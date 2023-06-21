@@ -1,0 +1,9 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+<?php if (empty($this->showcase)) : ?>
+    <?php Controller::redirect('/', 301); ?>
+<?php else: ?>
+    <?= $this->showcase ?>
+<?php endif; ?>
+<?php $this->endblock(); ?>
