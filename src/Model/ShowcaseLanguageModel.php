@@ -11,37 +11,33 @@ use Contao\Model\Collection;
  *
  * @property int $id
  * @property int $pid
- * @property int $sorting
  * @property int $tstamp
- * @property string $title
+ * @property string $language
  *
- * @method static TagModel|null findById($id, array $opt=array())
- * @method static TagModel|null findByPk($id, array $opt=array())
- * @method static TagModel|null findOneBy($col, $val, array $opt=array())
- * @method static TagModel|null findOneByPid($val, array $opt=array())
- * @method static TagModel|null findOneBySorting($val, array $opt=array())
- * @method static TagModel|null findOneByTstamp($val, array $opt=array())
- * @method static TagModel|null findOneByTitle($val, array $opt=array())
+ * @method static ShowcaseLanguageModel|null findById($id, array $opt=array())
+ * @method static ShowcaseLanguageModel|null findByPk($id, array $opt=array())
+ * @method static ShowcaseLanguageModel|null findOneBy($col, $val, array $opt=array())
+ * @method static ShowcaseLanguageModel|null findOneByPid($val, array $opt=array())
+ * @method static ShowcaseLanguageModel|null findOneByTstamp($val, array $opt=array())
+ * @method static ShowcaseLanguageModel|null findOneByLanguage($val, array $opt=array())
  *
- * @method static Collection|TagModel[]|TagModel|null findByPid($val, array $opt=array())
- * @method static Collection|TagModel[]|TagModel|null findBySorting($val, array $opt=array())
- * @method static Collection|TagModel[]|TagModel|null findByTstamp($val, array $opt=array())
- * @method static Collection|TagModel[]|TagModel|null findByTitle($val, array $opt=array())
- * @method static Collection|TagModel[]|TagModel|null findMultipleByIds($var, array $opt=array())
- * @method static Collection|TagModel[]|TagModel|null findBy($col, $val, array $opt=array())
- * @method static Collection|TagModel[]|TagModel|null findAll(array $opt=array())
+ * @method static Collection|ShowcaseLanguageModel[]|ShowcaseLanguageModel|null findByPid($val, array $opt=array())
+ * @method static Collection|ShowcaseLanguageModel[]|ShowcaseLanguageModel|null findByTstamp($val, array $opt=array())
+ * @method static Collection|ShowcaseLanguageModel[]|ShowcaseLanguageModel|null findByLanguage($val, array $opt=array())
+ * @method static Collection|ShowcaseLanguageModel[]|ShowcaseLanguageModel|null findMultipleByIds($var, array $opt=array())
+ * @method static Collection|ShowcaseLanguageModel[]|ShowcaseLanguageModel|null findBy($col, $val, array $opt=array())
+ * @method static Collection|ShowcaseLanguageModel[]|ShowcaseLanguageModel|null findAll(array $opt=array())
  *
  * @method static integer countById($id, array $opt=array())
  * @method static integer countByPid($val, array $opt=array())
- * @method static integer countBySorting($val, array $opt=array())
  * @method static integer countByTstamp($val, array $opt=array())
- * @method static integer countByTitle($val, array $opt=array())
+ * @method static integer countByLanguage($val, array $opt=array())
  */
 class ShowcaseLanguageModel extends Model
 {
     protected static $strTable = 'tl_showcase_language';
 
-    public static function findByLanguageAndPid(string $language, int $pid, array $opt = [])
+    public static function findByLanguageAndPid(string $language, int $pid, array $opt = []): ShowcaseLanguageModel|Collection|array|null
     {
         return static::findBy(['language=? AND pid=?'], [$language, $pid], $opt);
     }
