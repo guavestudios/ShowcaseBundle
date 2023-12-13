@@ -13,6 +13,7 @@
 	"require": {
 		"php": "^7.4 || ^8.0",
 		"contao/core-bundle": "^4.13",
+		"guave/tag-bundle": "dev-develop",
 		"menatwork/contao-multicolumnwizard-bundle": "~3.6",
 		"terminal42/dc_multilingual": "^4.4"
 	},
@@ -48,7 +49,7 @@
 		"contao-manager-plugin": "Guave\\ShowcaseBundle\\ContaoManager\\Plugin"
 	},
 	"support": {
-		"issues": "https://github.com/guavestudios/showcase-bundle/issues",
-		"source": "https://github.com/guavestudios/showcase-bundle"
+		"issues": "https://github.com/guavestudios/ShowcaseBundle/issues",
+		"source": "https://github.com/guavestudios/ShowcaseBundle"
 	}
 }

@@ -8,10 +8,9 @@ use Contao\CoreBundle\ServiceAnnotation\FrontendModule;
 use Contao\Environment;
 use Contao\ModuleModel;
 use Contao\StringUtil;
-use Contao\System;
 use Contao\Template;
 use Guave\ShowcaseBundle\Model\ShowcaseModel;
-use Guave\ShowcaseBundle\Model\ShowcaseTagModel;
+use Guave\TagBundle\Model\TagModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -50,7 +49,7 @@ class ShowcaseListController extends AbstractFrontendModuleController
             if ($showcaseTags) {
                 foreach ($showcaseTags as $tag) {
                     if (!array_key_exists($tag, $allTags)) {
-                        $allTags[$tag] = ShowcaseTagModel::findById($tag);
+                        $allTags[$tag] = TagModel::findById($tag);
                     }
                 }
             }

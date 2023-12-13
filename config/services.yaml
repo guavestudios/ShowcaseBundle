@@ -5,3 +5,9 @@ services:
   Guave\ShowcaseBundle\Controller\:
     resource: ../src/Controller
     public: true
+
+  Guave\ShowcaseBundle\Migration\MoveTagTableMigration:
+    arguments:
+      $connection: '@doctrine.dbal.default_connection'
+    tags:
+      - { name: contao.migration, priority: 0 }

@@ -7,6 +7,7 @@ use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use Guave\ShowcaseBundle\GuaveShowcaseBundle;
+use Guave\TagBundle\GuaveTagBundle;
 
 class Plugin implements BundlePluginInterface
 {
@@ -17,7 +18,7 @@ class Plugin implements BundlePluginInterface
     {
         return [
             BundleConfig::create(GuaveShowcaseBundle::class)
-                ->setLoadAfter([ContaoCoreBundle::class]),
+                ->setLoadAfter([ContaoCoreBundle::class, GuaveTagBundle::class]),
         ];
     }
 }

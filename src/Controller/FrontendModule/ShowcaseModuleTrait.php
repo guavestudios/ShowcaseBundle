@@ -10,7 +10,7 @@ use Contao\Model;
 use Contao\PageModel;
 use Guave\ShowcaseBundle\Helper\RelationHelper;
 use Guave\ShowcaseBundle\Model\ShowcaseLanguageModel;
-use Guave\ShowcaseBundle\Model\ShowcaseTagModel;
+use Guave\TagBundle\Model\TagModel;
 
 trait ShowcaseModuleTrait
 {
@@ -18,7 +18,7 @@ trait ShowcaseModuleTrait
     {
         $template = new FrontendTemplate($templateFile);
         $template->setData($record->row());
-        $template->tags = RelationHelper::getRelation(unserialize($record->tags), ShowcaseTagModel::class);
+        $template->tags = RelationHelper::getRelation(unserialize($record->tags), TagModel::class);
         $template->linkList = RelationHelper::getRelation(unserialize($record->linkList), PageModel::class);
 
         $template->hasListImage = false;

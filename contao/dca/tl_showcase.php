@@ -274,7 +274,7 @@ $GLOBALS['TL_DCA'][tl_showcase::class] = [
         'tags' => [
             'exclude' => true,
             'inputType' => 'select',
-            'foreignKey' => 'tl_showcase_tag.title',
+            'foreignKey' => 'tl_tag.title',
             'eval' => ['chosen' => true, 'includeBlankOption' => true, 'multiple' => true, 'tl_class' => 'w100 clr'],
             'sql' => ['type' => 'string', 'default' => ''],
         ],

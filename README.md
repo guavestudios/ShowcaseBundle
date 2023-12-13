@@ -6,6 +6,7 @@ This Contao module contains a content element to showcase projects or other such
 
 - Contao 4.13+
 - PHP 7.4 or 8.0+
+- Guave Tag Module
 
 ## Install
 

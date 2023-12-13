@@ -13,14 +13,14 @@ use Contao\System;
 use Contao\Template;
 use Guave\ShowcaseBundle\Helper\RelationHelper;
 use Guave\ShowcaseBundle\Model\ShowcaseModel;
-use Guave\ShowcaseBundle\Model\ShowcaseTagModel;
+use Guave\TagBundle\Model\TagModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @ContentElement("showcases", category="showcases", template="content_element/showcases")
  */
-#[AsContentElement('showcases', category:'showcases', template:'content_element/showcases')]
+#[AsContentElement('showcases', category: 'showcases', template: 'content_element/showcases')]
 class ShowcasesController extends AbstractContentElementController
 {
     protected function getResponse(Template $template, ContentModel $model, Request $request): ?Response
@@ -38,7 +38,7 @@ class ShowcasesController extends AbstractContentElementController
         }
 
         foreach ($showcases as $showcase) {
-            $showcase->tags = RelationHelper::getRelation(unserialize($showcase->tags), ShowcaseTagModel::class);
+            $showcase->tags = RelationHelper::getRelation(unserialize($showcase->tags), TagModel::class);
             $showcase->linkList = RelationHelper::getRelation(unserialize($showcase->linkList), PageModel::class);
             $showcase->listImage = FilesModel::findByUuid($showcase->listImage)->path;
             $showcase->headerAsset = FilesModel::findByUuid($showcase->headerAsset)->path;
