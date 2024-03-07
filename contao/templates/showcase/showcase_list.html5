@@ -2,7 +2,8 @@
     <div
         class="<?= $this->class ?>showcase-single__wrapper<?= $this->changeBgColors ? ' screen--' . $this->changeBgColors : '' ?>">
         <?php if ($this->hasListImage): ?>
-            <a href="{{env::path}}{{link_url::<?= $this->jumpTo ?>}}/<?= $this->alias ?>" class="showcase-single__image">
+            <a href="{{env::path}}{{link_url::<?= $this->jumpTo ?>}}/<?= $this->alias ?>"
+               class="showcase-single__image">
                 <img src="<?= $this->listImage ?>" alt="<?= $this->title ?>">
             </a>
         <?php endif; ?>

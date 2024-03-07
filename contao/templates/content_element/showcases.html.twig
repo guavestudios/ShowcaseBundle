@@ -2,11 +2,11 @@
     {% for showcase in showcases %}
         <section class="showcase-single">
             {% if showcase.listImage %}
-            <img src="{{ showcase.listImage }}" alt="{{ showcase.title }}">
+                <img src="{{ showcase.listImage }}" alt="{{ showcase.title }}">
             {% endif %}
             <h1>{{ showcase.title }}</h1>
             {% if showcase.subtitle %}
-            <h2>{{ showcase.subtitle }}</h2>
+                <h2>{{ showcase.subtitle }}</h2>
             {% endif %}
         </section>
     {% endfor %}

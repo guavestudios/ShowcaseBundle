@@ -28,8 +28,8 @@ class MoveTagTableMigration extends AbstractMigration
 
     public function run(): MigrationResult
     {
-         $this->connection->executeQuery("RENAME TABLE `tl_showcase_tag` TO `tl_tag`;");
+        $this->connection->executeQuery("RENAME TABLE `tl_showcase_tag` TO `tl_tag`;");
 
-         return $this->createResult(true, 'Moved tl_showcase_tag table to tl_tag.');
+        return $this->createResult(true, 'Moved tl_showcase_tag table to tl_tag.');
     }
 }

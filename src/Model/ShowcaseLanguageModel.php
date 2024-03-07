@@ -14,24 +14,24 @@ use Contao\Model\Collection;
  * @property int $tstamp
  * @property string $language
  *
- * @method static ShowcaseLanguageModel|null findById($id, array $opt=array())
- * @method static ShowcaseLanguageModel|null findByPk($id, array $opt=array())
- * @method static ShowcaseLanguageModel|null findOneBy($col, $val, array $opt=array())
- * @method static ShowcaseLanguageModel|null findOneByPid($val, array $opt=array())
- * @method static ShowcaseLanguageModel|null findOneByTstamp($val, array $opt=array())
- * @method static ShowcaseLanguageModel|null findOneByLanguage($val, array $opt=array())
+ * @method static ShowcaseLanguageModel|null findById($id, array $opt = array())
+ * @method static ShowcaseLanguageModel|null findByPk($id, array $opt = array())
+ * @method static ShowcaseLanguageModel|null findOneBy($col, $val, array $opt = array())
+ * @method static ShowcaseLanguageModel|null findOneByPid($val, array $opt = array())
+ * @method static ShowcaseLanguageModel|null findOneByTstamp($val, array $opt = array())
+ * @method static ShowcaseLanguageModel|null findOneByLanguage($val, array $opt = array())
  *
- * @method static Collection|ShowcaseLanguageModel[]|ShowcaseLanguageModel|null findByPid($val, array $opt=array())
- * @method static Collection|ShowcaseLanguageModel[]|ShowcaseLanguageModel|null findByTstamp($val, array $opt=array())
- * @method static Collection|ShowcaseLanguageModel[]|ShowcaseLanguageModel|null findByLanguage($val, array $opt=array())
- * @method static Collection|ShowcaseLanguageModel[]|ShowcaseLanguageModel|null findMultipleByIds($var, array $opt=array())
- * @method static Collection|ShowcaseLanguageModel[]|ShowcaseLanguageModel|null findBy($col, $val, array $opt=array())
- * @method static Collection|ShowcaseLanguageModel[]|ShowcaseLanguageModel|null findAll(array $opt=array())
+ * @method static Collection|ShowcaseLanguageModel[]|ShowcaseLanguageModel|null findByPid($val, array $opt = array())
+ * @method static Collection|ShowcaseLanguageModel[]|ShowcaseLanguageModel|null findByTstamp($val, array $opt = array())
+ * @method static Collection|ShowcaseLanguageModel[]|ShowcaseLanguageModel|null findByLanguage($val, array $opt = array())
+ * @method static Collection|ShowcaseLanguageModel[]|ShowcaseLanguageModel|null findMultipleByIds($var, array $opt = array())
+ * @method static Collection|ShowcaseLanguageModel[]|ShowcaseLanguageModel|null findBy($col, $val, array $opt = array())
+ * @method static Collection|ShowcaseLanguageModel[]|ShowcaseLanguageModel|null findAll(array $opt = array())
  *
- * @method static integer countById($id, array $opt=array())
- * @method static integer countByPid($val, array $opt=array())
- * @method static integer countByTstamp($val, array $opt=array())
- * @method static integer countByLanguage($val, array $opt=array())
+ * @method static integer countById($id, array $opt = array())
+ * @method static integer countByPid($val, array $opt = array())
+ * @method static integer countByTstamp($val, array $opt = array())
+ * @method static integer countByLanguage($val, array $opt = array())
  */
 class ShowcaseLanguageModel extends Model
 {

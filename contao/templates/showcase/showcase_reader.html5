@@ -46,7 +46,8 @@ $linksSection = unserialize($this->linksSection);
                 </div>
             </div>
             <div class="showcase__content showcase__content--grey">
-                <div class="showcase__details<?= $this->customerImage ? ' showcase__details--logo' : '' ?> insicht insicht--fade-up">
+                <div
+                    class="showcase__details<?= $this->customerImage ? ' showcase__details--logo' : '' ?> insicht insicht--fade-up">
                     <?php if ($this->tagTitle) : ?>
                         <div class="showcase__meta">
                             <?= $this->tagTitle ?>
