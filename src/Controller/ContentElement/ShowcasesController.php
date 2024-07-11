@@ -6,24 +6,20 @@ use Contao\BackendTemplate;
 use Contao\ContentModel;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
-use Contao\CoreBundle\ServiceAnnotation\ContentElement;
+use Contao\CoreBundle\Twig\FragmentTemplate;
 use Contao\FilesModel;
 use Contao\PageModel;
 use Contao\System;
-use Contao\Template;
 use Guave\ShowcaseBundle\Helper\RelationHelper;
 use Guave\ShowcaseBundle\Model\ShowcaseModel;
 use Guave\TagBundle\Model\TagModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @ContentElement("showcases", category="showcases", template="content_element/showcases")
- */
 #[AsContentElement('showcases', category: 'showcases', template: 'content_element/showcases')]
 class ShowcasesController extends AbstractContentElementController
 {
-    protected function getResponse(Template $template, ContentModel $model, Request $request): ?Response
+    protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
         $scope = System::getContainer()->get('contao.routing.scope_matcher');
         if ($scope && $scope->isBackendRequest($request)) {

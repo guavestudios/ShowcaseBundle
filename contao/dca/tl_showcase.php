@@ -7,10 +7,11 @@ use Contao\DataContainer;
 use Contao\Image;
 use Contao\StringUtil;
 use Contao\System;
+use Terminal42\DcMultilingualBundle\Driver as Multilingual;
 
 $GLOBALS['TL_DCA'][tl_showcase::class] = [
     'config' => [
-        'dataContainer' => 'Multilingual',
+        'dataContainer' => Multilingual::class,
         'switchToEdit' => true,
         'enableVersioning' => true,
         'markAsCopy' => 'title',
@@ -150,7 +151,7 @@ $GLOBALS['TL_DCA'][tl_showcase::class] = [
                 'filesOnly' => true,
                 'fieldType' => 'radio',
                 'multiple' => false,
-                'extensions' => $GLOBALS['TL_CONFIG']['validImageTypes'],
+                'extensions' => '%contao.image.valid_extensions%',
                 'tl_class' => 'w50',
                 'translatableFor' => '*'
             ],
@@ -169,7 +170,7 @@ $GLOBALS['TL_DCA'][tl_showcase::class] = [
                 'filesOnly' => true,
                 'fieldType' => 'radio',
                 'multiple' => false,
-                'extensions' => $GLOBALS['TL_CONFIG']['validImageTypes'],
+                'extensions' => '%contao.image.valid_extensions%',
                 'tl_class' => 'w50',
                 'translatableFor' => '*'
             ],
@@ -182,7 +183,7 @@ $GLOBALS['TL_DCA'][tl_showcase::class] = [
                 'filesOnly' => true,
                 'fieldType' => 'radio',
                 'multiple' => false,
-                'extensions' => [$GLOBALS['TL_CONFIG']['validImageTypes'], 'mp4'],
+                'extensions' => ['%contao.image.valid_extensions%', 'mp4'],
                 'tl_class' => 'w50',
                 'translatableFor' => '*'
             ],
@@ -195,7 +196,7 @@ $GLOBALS['TL_DCA'][tl_showcase::class] = [
                 'filesOnly' => true,
                 'fieldType' => 'radio',
                 'multiple' => false,
-                'extensions' => [$GLOBALS['TL_CONFIG']['validImageTypes'], 'mp4'],
+                'extensions' => ['%contao.image.valid_extensions%', 'mp4'],
                 'tl_class' => 'w50',
                 'translatableFor' => '*'
             ],
@@ -208,7 +209,7 @@ $GLOBALS['TL_DCA'][tl_showcase::class] = [
                 'filesOnly' => true,
                 'fieldType' => 'radio',
                 'multiple' => false,
-                'extensions' => $GLOBALS['TL_CONFIG']['validImageTypes'],
+                'extensions' => '%contao.image.valid_extensions%',
                 'tl_class' => 'w50',
                 'translatableFor' => '*'
             ],
@@ -245,7 +246,7 @@ $GLOBALS['TL_DCA'][tl_showcase::class] = [
                 'filesOnly' => true,
                 'fieldType' => 'radio',
                 'multiple' => false,
-                'extensions' => $GLOBALS['TL_CONFIG']['validImageTypes'],
+                'extensions' => '%contao.image.valid_extensions%',
                 'tl_class' => 'w50',
                 'translatableFor' => '*'
             ],

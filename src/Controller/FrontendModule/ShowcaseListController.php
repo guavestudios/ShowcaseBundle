@@ -3,27 +3,25 @@
 namespace Guave\ShowcaseBundle\Controller\FrontendModule;
 
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsFrontendModule;
 use Contao\CoreBundle\Exception\PageNotFoundException;
-use Contao\CoreBundle\ServiceAnnotation\FrontendModule;
+use Contao\CoreBundle\Twig\FragmentTemplate;
 use Contao\Environment;
 use Contao\ModuleModel;
 use Contao\StringUtil;
-use Contao\Template;
 use Guave\ShowcaseBundle\Model\ShowcaseModel;
 use Guave\TagBundle\Model\TagModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @FrontendModule(category="showcase")
- */
+#[AsFrontendModule(category: 'showcase')]
 class ShowcaseListController extends AbstractFrontendModuleController
 {
     use FrontendModuleTrait, ShowcaseModuleTrait;
 
     private string $subTemplate = 'showcase_list';
 
-    protected function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
+    protected function getResponse(FragmentTemplate $template, ModuleModel $model, Request $request): Response
     {
         $showcaseIds = StringUtil::deserialize($model->showcases);
         $showcases = ShowcaseModel::findPublishedById($showcaseIds, ['order' => 'weight DESC']);
@@ -32,8 +30,7 @@ class ShowcaseListController extends AbstractFrontendModuleController
             throw new PageNotFoundException('Page not found: ' . Environment::get('uri'));
         }
 
-        $showcaseTags = $this->readTags($showcases);
-        $template->showcaseTags = $showcaseTags;
+        $template->showcaseTags = $this->readTags($showcases);
         $template->showcases = $this->parseRecords($showcases, $this->subTemplate, $model->jumpTo);
 
         return $template->getResponse();

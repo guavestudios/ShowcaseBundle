@@ -4,28 +4,26 @@ namespace Guave\ShowcaseBundle\Controller\FrontendModule;
 
 use Contao\Config;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsFrontendModule;
 use Contao\CoreBundle\Exception\PageNotFoundException;
 use Contao\CoreBundle\Routing\ResponseContext\HtmlHeadBag\HtmlHeadBag;
-use Contao\CoreBundle\ServiceAnnotation\FrontendModule;
+use Contao\CoreBundle\Twig\FragmentTemplate;
 use Contao\Environment;
 use Contao\Input;
 use Contao\ModuleModel;
 use Contao\System;
-use Contao\Template;
 use Guave\ShowcaseBundle\Model\ShowcaseModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @FrontendModule(category="showcase")
- */
+#[AsFrontendModule(category: 'showcase')]
 class ShowcaseReaderController extends AbstractFrontendModuleController
 {
     use FrontendModuleTrait, ShowcaseModuleTrait;
 
     private string $subTemplate = 'showcase_reader';
 
-    protected function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
+    protected function getResponse(FragmentTemplate $template, ModuleModel $model, Request $request): Response
     {
         if (!isset($_GET['items']) && isset($_GET['auto_item']) && Config::get('useAutoItem')) {
             Input::setGet('items', Input::get('auto_item'));

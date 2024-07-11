@@ -1,5 +1,7 @@
 <?php
 
+use Contao\Backend;
+
 $GLOBALS['TL_DCA']['tl_module']['palettes']['showcase_list'] = '{title_legend},name,headline,type;{config_legend},jumpTo,showcaseFilter,showcases,showcaseReaderModule;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['showcase_reader'] = '{title_legend},name,headline,type;{config_legend},overviewPage,showcases,customLabel;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
 
@@ -32,7 +34,7 @@ class tl_module_showcase extends Backend
 {
     public function getReaderModules()
     {
-        $arrModules = array();
+        $arrModules = [];
         $objModules = $this->Database->execute(
             "SELECT m.id, m.name, t.name AS theme FROM tl_module m LEFT JOIN tl_theme t ON m.pid=t.id WHERE m.type='showcase_reader' ORDER BY t.name, m.name"
         );

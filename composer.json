@@ -11,9 +11,12 @@
 		}
 	],
 	"require": {
-		"php": "^7.4 || ^8.0",
-		"contao/core-bundle": "^4.13",
-		"guave/tag-bundle": "^1.0",
+		"php": "^8.1",
+		"contao/core-bundle": "^4.13 || ^5.0",
+		"guave/tag-bundle": "@dev",
+		"symfony/config": "^5.4 || ^6.4",
+		"symfony/dependency-injection": "^5.4 || ^6.4",
+		"symfony/http-kernel": "^5.4 || ^6.4",
 		"menatwork/contao-multicolumnwizard-bundle": "~3.6",
 		"terminal42/dc_multilingual": "^4.4"
 	},
