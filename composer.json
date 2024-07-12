@@ -13,7 +13,7 @@
 	"require": {
 		"php": "^7.4 || ^8.0",
 		"contao/core-bundle": "^4.13",
-		"guave/tag-bundle": "dev-develop",
+		"guave/tag-bundle": "^1.0",
 		"menatwork/contao-multicolumnwizard-bundle": "~3.6",
 		"terminal42/dc_multilingual": "^4.4"
 	},
