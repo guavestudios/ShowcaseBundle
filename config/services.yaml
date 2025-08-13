@@ -3,12 +3,11 @@ services:
     autoconfigure: true
     autowire: true
 
-  Guave\ShowcaseBundle\Controller\:
-    resource: ../src/Controller
-    public: true
+  Guave\ShowcaseBundle\:
+    resource: ../src
+    exclude: ../src/{ContaoManager,DependencyInjection}
 
-  Guave\ShowcaseBundle\Migration\MoveTagTableMigration:
-    arguments:
-      $connection: '@doctrine.dbal.default_connection'
+  Guave\ShowcaseBundle\Migration\:
+    resource: ../src/Migration
     tags:
       - { name: contao.migration, priority: 0 }
