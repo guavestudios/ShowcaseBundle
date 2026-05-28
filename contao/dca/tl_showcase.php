@@ -299,26 +299,27 @@ $GLOBALS['TL_DCA'][tl_showcase::class] = [
         ],
         'linksSection' => [
             'exclude' => true,
-            'inputType' => 'multiColumnWizard',
+            'inputType' => 'rowWizard',
+            'fields' => [
+                'link' => [
+                    'label' => &$GLOBALS['TL_LANG']['tl_showcase']['linksSectionLink'],
+                    'excludes' => true,
+                    'inputType' => 'text',
+                    'eval' => [
+                        'mandatory' => false,
+                        'dcaPicker' => true,
+                        'style' => 'width: calc(100% - 50px)',
+                    ],
+                ],
+                'linkTitle' => [
+                    'label' => &$GLOBALS['TL_LANG']['tl_showcase']['linksSectionLinkTitle'],
+                    'excludes' => true,
+                    'inputType' => 'text',
+                    'eval' => ['mandatory' => false, 'style' => 'width: calc(100% - 24px)'],
+                ],
+            ],
             'eval' => [
-                'columnFields' => [
-                    'link' => [
-                        'label' => &$GLOBALS['TL_LANG']['tl_showcase']['linksSectionLink'],
-                        'excludes' => true,
-                        'inputType' => 'text',
-                        'eval' => [
-                            'mandatory' => false,
-                            'dcaPicker' => true,
-                            'style' => 'width: calc(100% - 50px)',
-                        ],
-                    ],
-                    'linkTitle' => [
-                        'label' => &$GLOBALS['TL_LANG']['tl_showcase']['linksSectionLinkTitle'],
-                        'excludes' => true,
-                        'inputType' => 'text',
-                        'eval' => ['mandatory' => false, 'style' => 'width: calc(100% - 24px)'],
-                    ],
-                ]
+                'actions' => ['new', 'copy', 'delete', 'enable'],
             ],
             'sql' => ['type' => 'blob', 'notnull' => false],
         ],
